@@ -1,0 +1,28 @@
+name: crispr-be
+channels:
+  - conda-forge
+dependencies:
+  - python==3.12
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - openpyxl
+  - pyyaml
+  - biopython
+  - biopandas
+  - pip
+  - ipykernel
+  - pip:
+    - pre-commit
+    - pytest
+    - coverage
+    - blosum
+    - tqdm
+    - requests
+    - hydra-core 
+    - omegaconf
+    - typer
+    - matplotlib-venn
+    

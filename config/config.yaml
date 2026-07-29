@@ -1,0 +1,165 @@
+# Base directories
+home_dir: ?
+base_dir: ?
+scratch_dir: ?
+data_dir: ?
+input_data_dir: ?
+
+# Input filepaths and executables
+guide_data_filepath: ${input_data_dir}/BElib2_full_library.csv
+vep_venv_filepath: ${home_dir}/venv_vep/
+vep_install_filepath: ${scratch_dir}/vep_install/
+casoffinder_path: /software/cas-offinder/cas-offinder
+essential_genes_off_targets_dirpath: ${input_data_dir}/data_on_off-targets
+controls_filepath: ${input_data_dir}/Controls.csv
+validated_ctrls_filepath: ${input_data_dir}/Validated_controls.xlsx
+depmap_data_filepath: ${input_data_dir}/gene_effects_updated_all.csv
+pdb_database_dirpath: ?
+
+## MAGECK main output: LFC data
+lfc_data_filepaths:
+    MCF7:
+        ABE: ${input_data_dir}/MAGECK_processed/3144_MCF7/results/MAGECK/COMBINED/MCF7_ABE_vs_plasmid.sgrna_summary_mine.txt
+        CBE: ${input_data_dir}/MAGECK_processed/3144_MCF7/results/MAGECK/COMBINED/MCF7_CBE_vs_plasmid.sgrna_summary.txt
+    T47D:
+        ABE: ${input_data_dir}/MAGECK_processed/3158_T47D/results/MAGECK/COMBINED/T47D_ABE_vs_plasmid.sgrna_summary.txt
+        CBE: ${input_data_dir}/MAGECK_processed/3158_T47D/results/MAGECK/COMBINED/T47D_CBE_vs_plasmid.sgrna_summary.txt
+    HGC27:
+        ABE: ${input_data_dir}/MAGECK_processed/3159_km29_HGC27_R1R3only/results/MAGECK/COMBINED/HGC27_ABE_vs_plasmid.sgrna_summary.txt
+        CBE: ${input_data_dir}/MAGECK_processed/3159_km29_HGC27_R1R3only/results/MAGECK/COMBINED/HGC27_CBE_vs_plasmid.sgrna_summary.txt
+
+## MAGECK metadata on genes
+gene_data_filepaths:
+    MCF7: 
+        ABE: ${input_data_dir}/MAGECK_processed/3144_MCF7/results/MAGECK/COMBINED/MCF7_ABE_vs_plasmid.gene_summary.txt
+        CBE: ${input_data_dir}/MAGECK_processed/3144_MCF7/results/MAGECK/COMBINED/MCF7_CBE_vs_plasmid.gene_summary.txt
+    T47D:
+        ABE: ${input_data_dir}/MAGECK_processed/3158_T47D/results/MAGECK/COMBINED/T47D_ABE_vs_plasmid.gene_summary.txt
+        CBE: ${input_data_dir}/MAGECK_processed/3158_T47D/results/MAGECK/COMBINED/T47D_CBE_vs_plasmid.gene_summary.txt
+    HGC27:
+        ABE: ${input_data_dir}/MAGECK_processed/3159_km29_HGC27_R1R3only/results/MAGECK/COMBINED/HGC27_ABE_vs_plasmid.gene_summary.txt
+        CBE: ${input_data_dir}/MAGECK_processed/3159_km29_HGC27_R1R3only/results/MAGECK/COMBINED/HGC27_CBE_vs_plasmid.gene_summary.txt
+
+
+# Output filepaths
+gene2ensg_filepath: ${data_dir}/gene2ensg.json
+gene2enst_filepath: ${data_dir}/gene2enst.json
+bestimate_data_dirpath: ${data_dir}/bestimate
+guide_with_edits_dirpath: ${data_dir}/guide_with_edits
+vep_data_dirpath: ${data_dir}/vep
+grch38_dirpath: ${scratch_dir}/grch38
+annotated_grch38_dirpath: ${scratch_dir}/annotated_grch38
+off_targets_dirpath: ${data_dir}/off_targets
+processed_files_dirpath: ${data_dir}/processed_files
+figures_dirpath: ${data_dir}/figures
+segment_df: ${data_dir}/uniprot_pdb_segments.csv
+segment_residue_df: ${data_dir}/segment_id_to_mapping.json
+uniprot_annotations_dirpath: ${data_dir}/uniprot_annotations
+
+# Params
+target_genes: ['AKT1', 'AKT1S1', 'AKT2', 'AKT3', 'DEPTOR', 'EIF4EBP1', 'EIF4E', 'MAPKAP1',
+                'MLST8', 'MTOR', 'PDPK1', 'PHLPP1', 'PHLPP2', 'PIK3CA', 'PIK3CB', 'PIK3CD', 
+                'PIK3R1', 'PIK3R2', 'PIK3R3', 'PRR5L', 'PRR5', 'PTEN', 'RHEB', 'RICTOR', 
+                'RPS6KB1', 'RPS6KB2', 'RPS6', 'RPTOR', 'TSC1', 'TSC2']
+
+gene_name_correction:
+    RHEB2: 'RHEB'
+    RAPTOR: 'RPTOR'
+    PRR5l: 'PRR5L'
+
+editors: ['ABE', 'CBE']
+
+# BEstimate editor configuration
+editor_config:
+    ABE:
+        edit: 'A'
+        edit_to: 'G'
+        suffix: 'ABE'
+    CBE:
+        edit: 'C'
+        edit_to: 'T'
+        suffix: 'CBE'
+
+# BEstimate default parameters
+bestimate_parameters:
+    assembly: 'GRCh38'
+    pam_seq: 'NGN'
+    pam_window: '21-23'
+    activity_window: '4-9'
+    protospacer_length: 20
+
+chr_fasta_download_url: https://ftp.ensembl.org/pub/release-115/fasta/homo_sapiens/dna/
+chr_gff3_download_url: https://ftp.ensembl.org/pub/release-115/gff3/homo_sapiens/
+chromosomes: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', 'X', 'Y', 'MT']
+
+
+cell_lines: ['HGC27', 'MCF7', 'T47D']
+
+depmap_2_cell_line:
+    ACH-000019: 'MCF7'
+    ACH-000147: 'T47D'
+    ACH-000847: 'HGC27'
+
+# ordering for plots
+control_type_order: ['intergenic', 'non_targeting', 'splice_nonessential', 'splice_essential'] # from least severe to most severe
+control_order: ['negative', 'positive']
+
+gene_effect_essential_threshold: -0.6
+fdr: 0.05
+
+# Amino acid 3-letter to 1-letter mapping
+amino_acid_3l_to_1l:
+    ALA: 'A'
+    ARG: 'R'
+    ASN: 'N'
+    ASP: 'D'
+    CYS: 'C'
+    GLU: 'E'
+    GLN: 'Q'
+    GLY: 'G'
+    HIS: 'H'
+    ILE: 'I'
+    LEU: 'L'
+    LYS: 'K'
+    MET: 'M'
+    PHE: 'F'
+    PRO: 'P'
+    SER: 'S'
+    THR: 'T'
+    TRP: 'W'
+    TYR: 'Y'
+    VAL: 'V'
+
+gene_name_to_uniprot_id:
+    AKT1: 'P31749'
+    AKT1S1: 'Q96B36'
+    AKT2: 'P31751'
+    AKT3: 'Q9Y243'
+    DEPTOR: 'Q8TB45'
+    EIF4EBP1: 'Q13541'
+    EIF4E: 'P06730'
+    MAPKAP1: 'Q9BPZ7'
+    MLST8: 'Q9BVC4'
+    MTOR: 'P42345'
+    PDPK1: 'O15530'
+    PHLPP1: 'O60346'
+    PHLPP2: 'Q6ZVD8'
+    PIK3CA: 'P42336'
+    PIK3CB: 'P42338'
+    PIK3CD: 'O00329'
+    PIK3R1: 'P27986'
+    PIK3R2: 'O00459'
+    PIK3R3: 'Q92569'
+    PRR5L: 'Q6MZQ0'
+    PRR5: 'P85299'
+    PTEN: 'P60484'
+    RHEB: 'Q15382'
+    RICTOR: 'Q6R327'
+    RPS6KB1: 'P23443'
+    RPS6KB2: 'Q9UBS0'
+    RPS6: 'P62753'
+    RPTOR: 'Q8N122'
+    TSC1: 'Q92574'
+    TSC2: 'P49815'
+
+overwrite: False

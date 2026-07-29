@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crispr-be"
+version = "1.0.0"
+description = "CRISPR base editing analysis tools"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "Barbara Abreu"},
+    {name = "Benoit Baillif"}
+]
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "openpyxl",
+    "pyyaml",
+    "biopython",
+    "biopandas",
+    "tqdm",
+    "requests",
+    "hydra-core",
+    "omegaconf",
+    "typer",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel",
+]
+
+[tool.setuptools]
+packages = ["crispr_be"]
+
+[tool.setuptools.package-data]
+crispr_be = ["**/*"]
