@@ -8,9 +8,13 @@ version = "1.0.0"
 description = "CRISPR base editing analysis tools"
 readme = "README.md"
 requires-python = ">=3.8"
+license = {text = "AGPL-3.0-or-later"}
 authors = [
     {name = "Barbara Abreu"},
     {name = "Benoit Baillif"}
+]
+classifiers = [
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
 ]
 dependencies = [
     "numpy",

@@ -82,3 +82,27 @@ In this code:
 Dataset_name needs to be in the format `"EXP_0_HGC27_0_ABE8e_0"` as long as it matches the split
 mutation_type can be synonymous, missense, low_imp_splice, high_imp_splice, stop
 aggregation can be minimum, median, average, maximum
+
+## Third-party code
+
+`crispr_be/bestimate/bestimate.py` is a modified version of
+[BEstimate](https://github.com/Garnett-Lab/BEstimate) by Cansu Dincer,
+Dr Matthew Coelho and Dr Mathew Garnett (Wellcome Sanger Institute), and remains
+subject to the licence of that project.
+
+## Copyright and licence
+
+Copyright &copy; 2026 Genome Research Limited
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program. If not, see <https://www.gnu.org/licenses/>. The full licence
+text is in [LICENSE](LICENSE).
